@@ -1,0 +1,529 @@
+/* ==========================================================================
+   Lëtz Gender — Design System
+   Dark-mode first, gender-coded color palette.
+   ========================================================================== */
+
+/* --- Tokens ------------------------------------------------------------ */
+:root {
+  /* Surfaces */
+  --bg:            #0d1017;
+  --bg-card:       #161b26;
+  --bg-card-hover: #1c2233;
+  --bg-input:      #1e2435;
+  --border:        #2a3045;
+
+  /* Text */
+  --text:          #e8ecf4;
+  --text-muted:    #8892a8;
+  --text-dim:      #5c6478;
+
+  /* Gender colours */
+  --blue:    #4A90D9;   /* Maskulin  */
+  --pink:    #E85D75;   /* Feminin   */
+  --green:   #3EBD7A;   /* Neutrum   */
+
+  --blue-bg:  rgba(74,144,217,0.12);
+  --pink-bg:  rgba(232,93,117,0.12);
+  --green-bg: rgba(62,189,122,0.12);
+
+  /* Accents */
+  --primary:       #6C8AFF;
+  --primary-hover: #8AA2FF;
+
+  /* Misc */
+  --radius:    10px;
+  --radius-sm: 6px;
+  --shadow:    0 2px 12px rgba(0,0,0,0.35);
+
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* --- Reset ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* --- Layout ------------------------------------------------------------ */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.app-header .logo-m { color: var(--blue); }
+.app-header .logo-f { color: var(--pink); }
+.app-header .logo-n { color: var(--green); }
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* --- Back link --------------------------------------------------------- */
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+.back-link:hover { color: var(--text); }
+
+/* --- Buttons ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: var(--primary);
+}
+.btn:hover { background: var(--primary-hover); }
+
+.btn-secondary {
+  background: var(--bg-input);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { background: var(--bg-card-hover); color: var(--text); }
+
+.btn-train { background: var(--blue); }
+.btn-train:hover { filter: brightness(1.15); }
+
+.btn-test { background: var(--pink); }
+.btn-test:hover { filter: brightness(1.15); }
+
+/* ========================================================================
+   HOME VIEW
+   ======================================================================== */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.topic-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary);
+}
+
+.topic-icon  { font-size: 2.4rem; }
+.topic-name  { font-weight: 600; font-size: 1.05rem; }
+.topic-count { color: var(--text-muted); font-size: 0.85rem; }
+
+/* ========================================================================
+   TOPIC VIEW
+   ======================================================================== */
+.topic-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.topic-icon-large { font-size: 3rem; display: block; margin-bottom: 8px; }
+.topic-header h1  { font-size: 1.8rem; font-weight: 700; }
+.topic-name-en    { color: var(--text-muted); margin-bottom: 8px; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--bg-input);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.topic-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* --- Word table -------------------------------------------------------- */
+.table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.word-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.word-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--border);
+}
+.word-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.word-table tbody tr:last-child td { border-bottom: none; }
+.word-table tbody tr:hover { background: var(--bg-card-hover); }
+
+.word-cell { font-weight: 600; }
+.word-def  { color: var(--text-muted); font-weight: 400; }
+
+/* --- Gender badges ----------------------------------------------------- */
+.gender-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.gender-m       { background: var(--blue-bg);  color: var(--blue);  }
+.gender-f       { background: var(--pink-bg);  color: var(--pink);  }
+.gender-n       { background: var(--green-bg); color: var(--green); }
+.gender-unknown { background: var(--bg-input); color: var(--text-muted); }
+
+/* ========================================================================
+   TRAIN VIEW
+   ======================================================================== */
+.train-view, .test-view, .summary-view {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.progress-info {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 5px;
+  background: var(--bg-input);
+  border-radius: 3px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Flashcard */
+.flashcard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.flashcard-word {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.flashcard-definition {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.flashcard-details {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 8px;
+}
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.detail-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.detail-value {
+  font-weight: 600;
+}
+
+/* Train controls */
+.train-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Keyboard hint */
+.keyboard-hint {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  margin-top: 16px;
+}
+.key {
+  display: inline-block;
+  padding: 2px 7px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+/* ========================================================================
+   TEST VIEW
+   ======================================================================== */
+.test-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.test-word {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.test-definition {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.gender-btn {
+  padding: 16px 20px;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+.gender-btn.gender-m       { background: var(--blue-bg);  color: var(--blue);  border: 2px solid transparent; }
+.gender-btn.gender-f       { background: var(--pink-bg);  color: var(--pink);  border: 2px solid transparent; }
+.gender-btn.gender-n       { background: var(--green-bg); color: var(--green); border: 2px solid transparent; }
+.gender-btn.gender-unknown { background: var(--bg-input); color: var(--text-muted); border: 2px solid transparent; }
+
+.gender-btn.gender-m:hover       { border-color: var(--blue);  background: rgba(74,144,217,0.2); }
+.gender-btn.gender-f:hover       { border-color: var(--pink);  background: rgba(232,93,117,0.2); }
+.gender-btn.gender-n:hover       { border-color: var(--green); background: rgba(62,189,122,0.2); }
+.gender-btn.gender-unknown:hover { border-color: var(--text-muted); background: var(--bg-card-hover); }
+
+/* Feedback */
+.feedback {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--radius-sm);
+}
+.feedback-correct {
+  background: rgba(62,189,122,0.1);
+  border: 1px solid var(--green);
+}
+.feedback-wrong {
+  background: rgba(232,93,117,0.1);
+  border: 1px solid var(--pink);
+}
+.feedback-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.feedback-correct .feedback-icon { color: var(--green); }
+.feedback-wrong   .feedback-icon { color: var(--pink); }
+.feedback-answer {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.test-controls {
+  margin-top: 20px;
+}
+
+/* ========================================================================
+   SUMMARY VIEW
+   ======================================================================== */
+.summary-view h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 28px;
+}
+
+.score-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.score-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid;
+}
+.score-great { border-color: var(--green); }
+.score-ok    { border-color: #F5A623; }
+.score-bad   { border-color: var(--pink); }
+
+.score-pct {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+.score-great .score-pct { color: var(--green); }
+.score-ok    .score-pct { color: #F5A623; }
+.score-bad   .score-pct { color: var(--pink); }
+
+.score-detail {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.perfect-score {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+/* Wrong answers section */
+.wrong-section {
+  margin-bottom: 28px;
+}
+.wrong-toggle {
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+}
+.wrong-list {
+  display: none;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wrong-list.expanded { display: block; }
+
+.summary-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ========================================================================
+   AUDIO BUTTON
+   ======================================================================== */
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+.audio-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text);
+  border-color: var(--primary);
+}
+.audio-btn.playing {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Word + audio inline wrapper */
+.word-with-audio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}

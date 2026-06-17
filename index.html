@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="lb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lëtz Gender — Lëtzebuerger Substantiv Geschlechter léieren</title>
+  <meta name="description" content="Léier d'Geschlechter vun de Lëtzebuerger Substantiven mat Trainéieren an Tester.">
+
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇱🇺</text></svg>">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>
+      <a href="#/">
+        <span class="logo-m">L</span>ëtz
+        <span class="logo-f">G</span>en<span class="logo-n">d</span>er
+      </a>
+    </h1>
+  </header>
+
+  <main id="app">
+    <!-- SPA content rendered here by app.js -->
+  </main>
+
+  <!--
+    DATA FILES — add new topics here.
+    Each file registers itself in window.LetzGender.topics.
+    Load them BEFORE app.js.
+  -->
+  <script src="js/data/fleamarket.js"></script>
+  <script src="js/data/farmersmarket.js"></script>
+  <script src="js/data/library.js"></script>
+  <script src="js/data/christmas.js"></script>
+  <script src="js/data/clothing.js"></script>
+
+  <!-- App logic (must come after all data files) -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
