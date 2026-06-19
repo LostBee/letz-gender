@@ -1,14 +1,14 @@
 /**
- * Topic: Bauerenmaart (Farmer's Market)
+ * Topic: Hausaufgaben (Homework)
  * 49 nouns from the provided word lists.
  */
 window.LetzGender = window.LetzGender || { topics: [] };
 
 window.LetzGender.topics.push({
-  id: "farmersmarket",
-  name: "Bauerenmaart",
-  nameEn: "Farmer's Market",
-  icon: "🧑‍🌾",
+  id: "homework",
+  name: "Hausaufgaben",
+  nameEn: "Homework",
+  icon: "📝",
   words: [
     // --- Image 1 ---
     { word: "Buedem",            article: "de",  plural: "d'Biedem",             gender: "m", definition: "floor / earth / soil / base" },
