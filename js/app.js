@@ -434,12 +434,15 @@
 
     // Actions
     h += '<div class="summary-actions">';
-    h += `  <a href="#/test/${topic.id}" class="btn btn-test">📝 Nach eng Kéier testen</a>`;
+    h += `  <button class="btn btn-test" id="btn-retest">📝 Nach eng Kéier testen</button>`;
     h += `  <a href="#/topic/${topic.id}" class="btn btn-secondary">← Zréck op d'Thema</a>`;
     h += '</div>';
 
     h += '</div>';
     app.innerHTML = h;
+
+    // Retest button — must call initTest directly since the hash won't change
+    bindClick('btn-retest', () => { initTest(topic.id); });
 
     // Toggle wrong list
     const toggleBtn = document.getElementById('toggle-wrong');
