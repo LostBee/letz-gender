@@ -32,7 +32,8 @@
     testOrder:     [],
     testIndex:     0,
     testAnswers:   [],
-    testFeedback:  false,
+    testFeedback:     false,
+    testHideLanguage: 'none',   // 'none' | 'en' | 'lb'
   };
 
   /* ====================================================================
@@ -282,12 +283,61 @@
     const topic = getTopic(topicId);
     if (!topic) return renderHome();
 
-    state.testOrder    = shuffle([...Array(topic.words.length).keys()]);
-    state.testIndex    = 0;
-    state.testAnswers  = [];
-    state.testFeedback = false;
+    state.testOrder        = shuffle([...Array(topic.words.length).keys()]);
+    state.testIndex        = 0;
+    state.testAnswers      = [];
+    state.testFeedback     = false;
+    state.testHideLanguage = 'none';
 
-    renderTest(topic);
+    renderLanguagePicker(topic);
+  }
+
+  /* ---- Language picker (pre-test step) ---- */
+  function renderLanguagePicker(topic) {
+    let h = '<div class="test-view">';
+    h += `<a href="#/topic/${topic.id}" class="back-link">← Ofbriechen</a>`;
+
+    h += '<div class="lang-picker">';
+    h += '  <h2 class="lang-picker-title">Wëlls du och Vokabelen testen?</h2>';
+    h += '  <p class="lang-picker-subtitle">Wiel wat verstoppt gëtt während dem Test</p>';
+    h += '  <div class="lang-picker-options">';
+    h += '    <button class="btn lang-option" data-hide="none">';
+    h += '      <span class="lang-option-icon">👁️</span>';
+    h += '      <span class="lang-option-label">Alles weisen</span>';
+    h += '      <span class="lang-option-desc">Nëmmen Geschlecht testen</span>';
+    h += '    </button>';
+    h += '    <button class="btn lang-option" data-hide="en">';
+    h += '      <span class="lang-option-icon">🇬🇧</span>';
+    h += '      <span class="lang-option-label">Englesch verstoppen</span>';
+    h += '      <span class="lang-option-desc">Lëtzebuergesch → Englesch + Geschlecht</span>';
+    h += '    </button>';
+    h += '    <button class="btn lang-option" data-hide="lb">';
+    h += '      <span class="lang-option-icon">🇱🇺</span>';
+    h += '      <span class="lang-option-label">Lëtzebuergesch verstoppen</span>';
+    h += '      <span class="lang-option-desc">Englesch → Lëtzebuergesch + Geschlecht</span>';
+    h += '    </button>';
+    h += '  </div>';
+    h += '</div>';
+    h += '</div>';
+    app.innerHTML = h;
+
+    // Bind picker buttons
+    document.querySelectorAll('.lang-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.testHideLanguage = btn.dataset.hide;
+        renderTest(topic);
+      });
+    });
+
+    // Keyboard shortcuts: 1/2/3
+    document.onkeydown = (e) => {
+      const map = { '1': 'none', '2': 'en', '3': 'lb' };
+      if (map[e.key]) {
+        e.preventDefault();
+        state.testHideLanguage = map[e.key];
+        renderTest(topic);
+      }
+    };
   }
 
   function renderTest(topic) {
@@ -307,8 +357,27 @@
     h += `<div class="progress-bar"><div class="progress-fill" style="width:${(cur / total) * 100}%"></div></div>`;
 
     h += '<div class="test-card">';
-    h += `  <div class="test-word"><span class="word-with-audio">${esc(word.word)}${audioBtn(word)}</span></div>`;
-    h += `  <div class="test-definition">${esc(word.definition)}</div>`;
+
+    // --- Word (Luxembourgish) ---
+    if (state.testHideLanguage === 'lb') {
+      h += '<div class="test-word"><span class="word-with-audio">???</span></div>';
+      h += '<details class="vocab-reveal">';
+      h += '  <summary class="vocab-reveal-btn">Wuert weisen</summary>';
+      h += `  <div class="vocab-reveal-content"><span class="word-with-audio">${esc(word.word)}${audioBtn(word)}</span></div>`;
+      h += '</details>';
+    } else {
+      h += `  <div class="test-word"><span class="word-with-audio">${esc(word.word)}${audioBtn(word)}</span></div>`;
+    }
+
+    // --- Definition (English) ---
+    if (state.testHideLanguage === 'en') {
+      h += '<details class="vocab-reveal">';
+      h += '  <summary class="vocab-reveal-btn">Definitioun weisen</summary>';
+      h += `  <div class="vocab-reveal-content">${esc(word.definition)}</div>`;
+      h += '</details>';
+    } else {
+      h += `  <div class="test-definition">${esc(word.definition)}</div>`;
+    }
 
     if (state.testFeedback) {
       // Show feedback
