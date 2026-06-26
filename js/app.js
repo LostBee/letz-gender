@@ -171,7 +171,12 @@
     topic.words.forEach(w => {
       const g = GENDER[w.gender];
       h += `<tr>
-        <td class="word-cell">${esc(w.word)}</td>
+        <td class="word-cell">
+          <div class="word-cell-content">
+            <span class="word-text">${esc(w.word)}</span>
+            ${audioBtn(w)}
+          </div>
+        </td>
         <td>${esc(w.article)}</td>
         <td>${esc(w.plural)}</td>
         <td><span class="gender-badge ${g.cssClass}">${g.label}</span></td>
@@ -181,6 +186,7 @@
 
     h += '</tbody></table></div></div>';
     app.innerHTML = h;
+    bindAudioButtons();
   }
 
   /* ====================================================================
