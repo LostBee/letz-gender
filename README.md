@@ -42,4 +42,4 @@ python tools/fetch-audio.py <topic_id> <word1> [word2] ...
 ```bash
 python tools/fetch-audio.py clothing Gilet Mantel Anorak
 ```
-This downloads the audio files to `audio/clothing/` and outputs the JavaScript mapping code to paste into `js/data/clothing.js`.
+This downloads the audio files to `audio/<topic_id>/` (e.g. `audio/clothing/`) and outputs the JavaScript mapping code to paste into the corresponding data file (e.g. `js/data/clothing.js`).
