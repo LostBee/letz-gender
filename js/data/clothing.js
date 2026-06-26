@@ -64,7 +64,7 @@ window.LetzGender.topics.push({
     { word: "Buedmantel", article: "de", plural: "d'Buedmäntel", gender: "m", definition: "bathrobe", audio: "audio/clothing/buedmantel1.m4a" },
     { word: "Nuetshiem", article: "dat", plural: "d'Nuetshiemer", gender: "n", definition: "nightgown", audio: "audio/clothing/nuetshiem1.m4a" },
     { word: "Pyjama", article: "de", plural: "d'Pyjamaen", gender: "m", definition: "pajamas", audio: "audio/clothing/pyjama1.m4a" },
-    { word: "Jogging", article: "de", plural: "d'Joggings", gender: "m", definition: "tracksuit" },
+    { word: "Jogging", article: "de", plural: "d'Joggings", gender: "m", definition: "tracksuit", audio: "audio/clothing/jogging1.m4a" },
     { word: "Cocktailskleed", article: "dat", plural: "d'Cocktailskleeder", gender: "n", definition: "cocktail dress" },
 
     // --- Accessories & Others ---
