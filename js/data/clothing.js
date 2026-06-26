@@ -61,9 +61,9 @@ window.LetzGender.topics.push({
     { word: "Bikini", article: "de", plural: "d'Bikinis", gender: "m", definition: "bikini", audio: "audio/clothing/bikini1.mp3" },
     { word: "Maillot", article: "de", plural: "d'Mailloten", gender: "m", definition: "swimsuit" },
     { word: "Schwammbox", article: "d'", plural: "d'Schwammboxen", gender: "f", definition: "swim trunks" },
-    { word: "Buedmantel", article: "de", plural: "d'Buedmäntel", gender: "m", definition: "bathrobe" },
-    { word: "Nuetshiem", article: "dat", plural: "d'Nuetshiemer", gender: "n", definition: "nightgown" },
-    { word: "Pyjama", article: "de", plural: "d'Pyjamaen", gender: "m", definition: "pajamas" },
+    { word: "Buedmantel", article: "de", plural: "d'Buedmäntel", gender: "m", definition: "bathrobe", audio: "audio/clothing/buedmantel1.m4a" },
+    { word: "Nuetshiem", article: "dat", plural: "d'Nuetshiemer", gender: "n", definition: "nightgown", audio: "audio/clothing/nuetshiem1.m4a" },
+    { word: "Pyjama", article: "de", plural: "d'Pyjamaen", gender: "m", definition: "pajamas", audio: "audio/clothing/pyjama1.m4a" },
     { word: "Jogging", article: "de", plural: "d'Joggings", gender: "m", definition: "tracksuit" },
     { word: "Cocktailskleed", article: "dat", plural: "d'Cocktailskleeder", gender: "n", definition: "cocktail dress" },
 
