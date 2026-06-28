@@ -1,0 +1,1 @@
+Apply Pareto principle for complicated tasks to save resources. Complete what's easily possible and then ask user if they want to proceed with the rest.
