@@ -1235,6 +1235,15 @@ a { color: inherit; text-decoration: none; }
   transform: scale(1.1);
 }
 
+.edit-col-header,
+.edit-cell {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  text-align: center;
+  padding: 10px 4px !important;
+}
+
 .edit-row {
   background: var(--bg-card) !important;
 }

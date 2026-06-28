@@ -462,7 +462,7 @@
 
     if (type === 'nouns') {
       h += '<thead><tr>';
-      h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th><th>SRS</th><th></th>';
+      h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th><th>SRS</th><th class="edit-col-header"></th>';
       h += '</tr></thead><tbody>';
       filtered.forEach((w, fi) => {
         const raw = rawWords[allWords.indexOf(w)] || w;
@@ -478,7 +478,7 @@
           <td><span class="gender-badge ${g ? g.cssClass : ''}">${g ? g.label : '?'}</span></td>
           <td>${esc(w.definition)}</td>
           <td><span class="srs-badge ${SRS.boxClass(rec.box)}">${SRS.boxLabel(rec.box)}</span></td>
-          <td><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
+          <td class="edit-cell"><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
         </tr>`;
 
         if (isEditing) {
@@ -487,7 +487,7 @@
       });
     } else if (type === 'verbs') {
       h += '<thead><tr>';
-      h += '  <th>Verb</th><th>Definitioun</th><th>Partizip</th><th>Hëllef</th><th>SRS</th><th></th>';
+      h += '  <th>Verb</th><th>Definitioun</th><th>Partizip</th><th>Hëllef</th><th>SRS</th><th class="edit-col-header"></th>';
       h += '</tr></thead><tbody>';
       filtered.forEach((w, fi) => {
         const raw = rawWords[allWords.indexOf(w)] || w;
@@ -503,7 +503,7 @@
           <td class="verb-pp">${esc(pp)}</td>
           <td><span class="aux-badge">${esc(aux)}</span></td>
           <td><span class="srs-badge ${SRS.boxClass(rec.box)}">${SRS.boxLabel(rec.box)}</span></td>
-          <td><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
+          <td class="edit-cell"><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
         </tr>`;
 
         if (isEditing) {
@@ -512,7 +512,7 @@
       });
     } else if (type === 'adjectives') {
       h += '<thead><tr>';
-      h += '  <th>Wuert</th><th>Definitioun</th><th>Typ</th><th>SRS</th><th></th>';
+      h += '  <th>Wuert</th><th>Definitioun</th><th>Typ</th><th>SRS</th><th class="edit-col-header"></th>';
       h += '</tr></thead><tbody>';
       filtered.forEach((w, fi) => {
         const raw = rawWords[allWords.indexOf(w)] || w;
@@ -526,7 +526,7 @@
           <td>${esc(w.definition)}</td>
           <td><span class="type-badge ${tm.cssClass}">${tm.label}</span></td>
           <td><span class="srs-badge ${SRS.boxClass(rec.box)}">${SRS.boxLabel(rec.box)}</span></td>
-          <td><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
+          <td class="edit-cell"><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
         </tr>`;
 
         if (isEditing) {
@@ -1002,7 +1002,7 @@
 
     h += '<div class="table-container"><table class="word-table">';
     h += '<thead><tr>';
-    h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th><th>SRS</th><th></th>';
+    h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th><th>SRS</th><th class="edit-col-header"></th>';
     h += '</tr></thead><tbody>';
 
     topic.words.forEach(w => {
@@ -1025,7 +1025,7 @@
         <td><span class="gender-badge ${g ? g.cssClass : ''}">${g ? g.label : '?'}</span></td>
         <td>${esc(dw.definition)}</td>
         <td><span class="srs-badge ${SRS.boxClass(rec.box)}">${SRS.boxLabel(rec.box)}</span></td>
-        <td><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
+        <td class="edit-cell"><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
       </tr>`;
 
       if (isEditing) {
