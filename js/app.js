@@ -24,6 +24,49 @@
   const SRS      = window.LetzSRS;
   const app      = document.getElementById('app');
 
+  // Initialize custom topic
+  let customTopic = topics.find(t => t.id === 'custom');
+  if (!customTopic) {
+    customTopic = {
+      id: 'custom',
+      name: 'Eege Wierder',
+      nameEn: 'Custom Nouns',
+      icon: '✍️',
+      words: []
+    };
+    topics.push(customTopic);
+  }
+
+  // Load custom words from local storage
+  function loadCustomWords() {
+    try {
+      const custom = JSON.parse(localStorage.getItem('letzVocab_customWords') || '[]');
+      custom.forEach(w => {
+        if (w.type === 'noun') {
+          let t = topics.find(topic => topic.id === (w.topic || 'custom'));
+          if (!t) {
+            t = customTopic;
+          }
+          w._topic = t.id;
+          if (!t.words.some(wordObj => wordObj.word === w.word)) {
+            t.words.push(w);
+          }
+        } else if (w.type === 'verb') {
+          if (!verbs.some(wordObj => wordObj.word === w.word)) {
+            verbs.push(w);
+          }
+        } else if (w.type === 'adjective' || w.type === 'adjective/adverb') {
+          if (!adjectives.some(wordObj => wordObj.word === w.word)) {
+            adjectives.push(w);
+          }
+        }
+      });
+    } catch (e) {
+      console.error("Error loading custom words:", e);
+    }
+  }
+  loadCustomWords();
+
   const GENDER = {
     m: { label: 'Maskulin', cssClass: 'gender-m' },
     f: { label: 'Feminin',  cssClass: 'gender-f' },
@@ -258,6 +301,368 @@
   }
 
   /* ====================================================================
+     MANUAL WORD ADDITION OVERLAY
+     ==================================================================== */
+  function injectAddWordModal() {
+    if (document.getElementById('add-word-modal')) return;
+
+    const modalHtml = `
+      <div id="add-word-modal" class="modal-backdrop">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Neit Wuert bäisetzen</h2>
+            <button id="close-add-modal" class="close-modal-btn">&times;</button>
+          </div>
+          <form id="add-word-form" class="modal-form">
+            <div class="form-group">
+              <label for="add-word-type">Wuert-Typ</label>
+              <select id="add-word-type" name="type">
+                <option value="noun">Substantiv (Noun)</option>
+                <option value="verb">Verb</option>
+                <option value="adjective">Adjektiv (Adjective)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="add-word-input">Wuert (Luxembourgish)</label>
+              <input type="text" id="add-word-input" name="word" required placeholder="z.B. Haus" />
+            </div>
+
+            <div class="form-group">
+              <label for="add-word-def">Definitioun (English)</label>
+              <input type="text" id="add-word-def" name="definition" required placeholder="z.B. house" />
+            </div>
+
+            <!-- Noun Specific Fields -->
+            <div id="noun-fields" class="modal-form-section">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="add-noun-article">Artikel</label>
+                  <input type="text" id="add-noun-article" name="article" placeholder="z.B. dat" />
+                </div>
+                <div class="form-group">
+                  <label for="add-noun-plural">Plural</label>
+                  <input type="text" id="add-noun-plural" name="plural" placeholder="z.B. d&#39;Haiser" />
+                </div>
+              </div>
+              <div class="form-row" style="margin-top: 12px;">
+                <div class="form-group">
+                  <label for="add-noun-gender">Geschlecht</label>
+                  <select id="add-noun-gender" name="gender">
+                    <option value="m">Maskulin</option>
+                    <option value="f">Feminin</option>
+                    <option value="n" selected>Neutrum</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="add-noun-topic">Thema (Topic)</label>
+                  <select id="add-noun-topic" name="topic">
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verb Specific Fields -->
+            <div id="verb-fields" class="modal-form-section" style="display: none;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="add-verb-pp">Partizip Perfekt</label>
+                  <input type="text" id="add-verb-pp" name="pastParticiple" placeholder="z.B. akaaft" />
+                </div>
+                <div class="form-group">
+                  <label for="add-verb-aux">Hëllefsverb</label>
+                  <select id="add-verb-aux" name="auxiliary">
+                    <option value="hunn" selected>hunn</option>
+                    <option value="sinn">sinn</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group" style="margin-top: 12px;">
+                <span class="edit-section-title" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 8px;">Konjugatioun (Präsens)</span>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="conj-ech" style="font-size: 0.8rem;">ech</label>
+                    <input type="text" id="conj-ech" name="conj_ech" placeholder="kafen" />
+                  </div>
+                  <div class="form-group">
+                    <label for="conj-du" style="font-size: 0.8rem;">du</label>
+                    <input type="text" id="conj-du" name="conj_du" placeholder="keefs" />
+                  </div>
+                </div>
+                <div class="form-row" style="margin-top: 8px;">
+                  <div class="form-group">
+                    <label for="conj-hien" style="font-size: 0.8rem;">hien/hatt/et</label>
+                    <input type="text" id="conj-hien" name="conj_hien_hatt_et" placeholder="keeft" />
+                  </div>
+                  <div class="form-group">
+                    <label for="conj-mir" style="font-size: 0.8rem;">mir</label>
+                    <input type="text" id="conj-mir" name="conj_mir" placeholder="kafen" />
+                  </div>
+                </div>
+                <div class="form-row" style="margin-top: 8px;">
+                  <div class="form-group">
+                    <label for="conj-dir" style="font-size: 0.8rem;">dir</label>
+                    <input type="text" id="conj-dir" name="conj_dir" placeholder="kaaft" />
+                  </div>
+                  <div class="form-group">
+                    <label for="conj-si" style="font-size: 0.8rem;">si</label>
+                    <input type="text" id="conj-si" name="conj_si" placeholder="kafen" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Adjective Specific Fields -->
+            <div id="adj-fields" class="modal-form-section" style="display: none;">
+              <div class="form-group">
+                <label for="add-adj-type">Typ</label>
+                <select id="add-adj-type" name="adjType">
+                  <option value="adjective" selected>Adjektiv</option>
+                  <option value="adjective/adverb">Adjektiv/Adverb</option>
+                  <option value="adverb">Adverb</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Common Additional Fields -->
+            <div class="form-group">
+              <label for="add-word-example">Beispill-Saz</label>
+              <input type="text" id="add-word-example" name="example" placeholder="z.B. Ech kafen am Supermarché an." />
+            </div>
+
+            <div class="form-group">
+              <label for="add-word-mnemonic">Mnemonic (Eselsbréck)</label>
+              <input type="text" id="add-word-mnemonic" name="mnemonic" placeholder="z.B. sounds like buy" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="add-word-box">SRS Këscht (Box)</label>
+                <select id="add-word-box" name="srsBox">
+                  <option value="0" selected>0 — Nei (New)</option>
+                  <option value="1">1 — Geléiert (Learning)</option>
+                  <option value="2">2 — Getest (Familiar)</option>
+                  <option value="3">3 — Confirméiert (Known)</option>
+                  <option value="4">4 — Staark (Strong)</option>
+                  <option value="5">5 — Gemeeschtert (Mastered)</option>
+                  <option value="-1">Net wichteg (Not important)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="add-audio-file">Audio (.mp3, .m4a, .wav)</label>
+                <input type="file" id="add-audio-file" accept="audio/*" />
+                <input type="hidden" name="audioDataUrl" id="add-audio-dataurl" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">💾 Späicheren</button>
+              <button type="button" id="btn-cancel-add" class="btn btn-secondary">Ofbriechen</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = modalHtml;
+    document.body.appendChild(wrapper.firstElementChild);
+
+    setupAddWordModalListeners();
+  }
+
+  function setupAddWordModalListeners() {
+    const modal = document.getElementById('add-word-modal');
+    const typeSelect = document.getElementById('add-word-type');
+    const form = document.getElementById('add-word-form');
+    const closeBtn = document.getElementById('close-add-modal');
+    const cancelBtn = document.getElementById('btn-cancel-add');
+    const fileInput = document.getElementById('add-audio-file');
+    const dataUrlInput = document.getElementById('add-audio-dataurl');
+
+    if (!modal || !typeSelect || !form) return;
+
+    typeSelect.addEventListener('change', () => {
+      const selectedType = typeSelect.value;
+      document.getElementById('noun-fields').style.display = selectedType === 'noun' ? 'block' : 'none';
+      document.getElementById('verb-fields').style.display = selectedType === 'verb' ? 'block' : 'none';
+      document.getElementById('adj-fields').style.display = selectedType === 'adjective' ? 'block' : 'none';
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      form.reset();
+      document.getElementById('noun-fields').style.display = 'block';
+      document.getElementById('verb-fields').style.display = 'none';
+      document.getElementById('adj-fields').style.display = 'none';
+      if (dataUrlInput) dataUrlInput.value = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    if (fileInput && dataUrlInput) {
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            dataUrlInput.value = evt.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const type = typeSelect.value;
+      const word = document.getElementById('add-word-input').value.trim();
+      const definition = document.getElementById('add-word-def').value.trim();
+      
+      if (!word || !definition) {
+        alert('Wuert an Definitioun sinn erfuerderlech!');
+        return;
+      }
+
+      // Check for duplicate words in database
+      let alreadyExists = false;
+      if (type === 'noun') {
+        alreadyExists = getAllNouns().some(w => w.word.toLowerCase() === word.toLowerCase());
+      } else if (type === 'verb') {
+        alreadyExists = verbs.some(w => w.word.toLowerCase() === word.toLowerCase());
+      } else if (type === 'adjective') {
+        alreadyExists = adjectives.some(w => w.word.toLowerCase() === word.toLowerCase());
+      }
+
+      if (alreadyExists) {
+        alert(`D'Wuert "${word}" existéiert scho fir dësen Typ!`);
+        return;
+      }
+
+      const newWord = {
+        word,
+        definition,
+        type,
+      };
+
+      if (type === 'noun') {
+        newWord.article = document.getElementById('add-noun-article').value.trim();
+        newWord.plural = document.getElementById('add-noun-plural').value.trim();
+        newWord.gender = document.getElementById('add-noun-gender').value;
+        newWord.topic = document.getElementById('add-noun-topic').value;
+      } else if (type === 'verb') {
+        newWord.conjugation = {
+          pastParticiple: document.getElementById('add-verb-pp').value.trim(),
+          auxiliary: document.getElementById('add-verb-aux').value,
+          present: {
+            ech: document.getElementById('conj-ech').value.trim(),
+            du: document.getElementById('conj-du').value.trim(),
+            'hien/hatt/et': document.getElementById('conj-hien').value.trim(),
+            mir: document.getElementById('conj-mir').value.trim(),
+            dir: document.getElementById('conj-dir').value.trim(),
+            si: document.getElementById('conj-si').value.trim(),
+          }
+        };
+      } else if (type === 'adjective') {
+        newWord.type = document.getElementById('add-adj-type').value;
+      }
+
+      if (dataUrlInput && dataUrlInput.value) {
+        newWord.audio = dataUrlInput.value;
+      }
+
+      const customList = JSON.parse(localStorage.getItem('letzVocab_customWords') || '[]');
+      customList.push(newWord);
+      localStorage.setItem('letzVocab_customWords', JSON.stringify(customList));
+
+      if (type === 'noun') {
+        let t = topics.find(topic => topic.id === (newWord.topic || 'custom'));
+        if (!t) t = customTopic;
+        newWord.type = 'noun';
+        newWord._topic = t.id;
+        t.words.push(newWord);
+      } else if (type === 'verb') {
+        verbs.push(newWord);
+      } else if (type === 'adjective' || type === 'adjective/adverb') {
+        adjectives.push(newWord);
+      }
+
+      const srsBox = parseInt(document.getElementById('add-word-box').value, 10);
+      if (srsBox !== 0) {
+        SRS.setBox(newWord, srsBox);
+      } else {
+        SRS.getRecord(newWord);
+      }
+
+      const exampleVal = document.getElementById('add-word-example').value.trim();
+      if (exampleVal) {
+        SRS.setExample(newWord, exampleVal);
+      }
+      const mnemonicVal = document.getElementById('add-word-mnemonic').value.trim();
+      if (mnemonicVal) {
+        SRS.setMnemonic(newWord, mnemonicVal);
+      }
+
+      closeModal();
+
+      if (state.currentView === 'words') {
+        renderWordList(state.listType);
+      } else if (state.currentView === 'topic') {
+        renderTopic(state.currentTopicId);
+      } else {
+        renderHome();
+      }
+    });
+  }
+
+  function openAddWordModal(context) {
+    injectAddWordModal();
+    
+    const modal = document.getElementById('add-word-modal');
+    if (!modal) return;
+
+    const form = document.getElementById('add-word-form');
+    if (form) form.reset();
+    const dataUrlInput = document.getElementById('add-audio-dataurl');
+    if (dataUrlInput) dataUrlInput.value = '';
+
+    const typeSelect = document.getElementById('add-word-type');
+    const topicSelect = document.getElementById('add-noun-topic');
+
+    if (topicSelect) {
+      topicSelect.innerHTML = topics.map(t => `<option value="${t.id}">${esc(t.name)}</option>`).join('');
+    }
+
+    if (context === 'nouns') {
+      typeSelect.value = 'noun';
+      if (topicSelect) topicSelect.value = 'custom';
+    } else if (context === 'verbs') {
+      typeSelect.value = 'verb';
+    } else if (context === 'adjectives') {
+      typeSelect.value = 'adjective';
+    } else {
+      typeSelect.value = 'noun';
+      if (topicSelect && [...topicSelect.options].some(o => o.value === context)) {
+        topicSelect.value = context;
+      } else if (topicSelect) {
+        topicSelect.value = 'custom';
+      }
+    }
+
+    typeSelect.dispatchEvent(new Event('change'));
+    modal.classList.add('active');
+  }
+
+  /* ====================================================================
      ROUTER
      ==================================================================== */
   function navigate() {
@@ -413,8 +818,9 @@
         ? allWords.filter((w, i) => SRS.getRecord(rawWords[i]).box !== -1)
         : allWords.filter((w, i) => SRS.getRecord(rawWords[i]).box === filter);
 
-    let h = '<div class="wordlist-view">';
+    let h = '<div class="wordlist-view" style="position: relative;">';
     h += '<a href="#/" class="back-link">← Zréck</a>';
+    h += '<button class="add-word-btn" id="open-add-modal-btn" title="Neit Wuert bäisetzen">➕</button>';
 
     h += '<div class="topic-header">';
     h += `  <h1>${esc(title)}</h1>`;
@@ -538,6 +944,7 @@
     h += '</tbody></table></div></div>';
     app.innerHTML = h;
     bindAudioButtons();
+    bindClick('open-add-modal-btn', () => openAddWordModal(type));
 
     // --- Filter events ---
     document.querySelectorAll('.filter-pill').forEach(btn => {
@@ -981,12 +1388,14 @@
      TOPIC VIEW (preserved from original)
      ==================================================================== */
   function renderTopic(topicId) {
+    state.currentTopicId = topicId;
     const topic = getTopic(topicId);
     if (!topic) return renderHome();
 
     let h = '';
-    h += '<div class="topic-view">';
+    h += '<div class="topic-view" style="position: relative;">';
     h += `<a href="#/" class="back-link">← Zréck</a>`;
+    h += '<button class="add-word-btn" id="open-add-modal-btn" title="Neit Wuert bäisetzen">➕</button>';
 
     h += '<div class="topic-header">';
     h += `  <span class="topic-icon-large">${topic.icon}</span>`;
@@ -1036,6 +1445,7 @@
     h += '</tbody></table></div></div>';
     app.innerHTML = h;
     bindAudioButtons();
+    bindClick('open-add-modal-btn', () => openAddWordModal(topicId));
 
     // --- Edit events ---
     document.querySelectorAll('.edit-row-btn').forEach(btn => {
