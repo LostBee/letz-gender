@@ -558,6 +558,10 @@
       });
     });
 
+    bindEditRowEvents(rawWords, type, () => renderWordList(type));
+  }
+
+  function bindEditRowEvents(rawWords, type, refreshFn) {
     // Save edit
     bindClick('btn-save-edit', () => {
       const form = document.getElementById('edit-form');
@@ -568,19 +572,39 @@
       const existingOverrides = SRS.getOverrides(rawWord) || {};
       const overrides = {};
 
+      // Word (Luxembourgish word spelling)
+      const wordInput = form.querySelector('[name="word"]');
+      if (wordInput && wordInput.value.trim() !== rawWord.word) {
+        overrides.word = wordInput.value.trim();
+      }
+
+      // Definition (English definition)
       const defInput = form.querySelector('[name="definition"]');
       if (defInput && defInput.value.trim() !== rawWord.definition) {
         overrides.definition = defInput.value.trim();
       }
 
-      if (type === 'nouns') {
+      // Example sentence
+      const exInput = form.querySelector('[name="example"]');
+      if (exInput) {
+        SRS.setExample(rawWord, exInput.value.trim());
+      }
+
+      // Mnemonic
+      const mnInput = form.querySelector('[name="mnemonic"]');
+      if (mnInput) {
+        SRS.setMnemonic(rawWord, mnInput.value.trim());
+      }
+
+      const typeClean = (type || '').toLowerCase().trim();
+      if (typeClean === 'nouns' || typeClean === 'noun') {
         const art = form.querySelector('[name="article"]');
         const pl = form.querySelector('[name="plural"]');
         const gen = form.querySelector('[name="gender"]');
         if (art && art.value.trim() !== rawWord.article) overrides.article = art.value.trim();
         if (pl && pl.value.trim() !== rawWord.plural) overrides.plural = pl.value.trim();
         if (gen && gen.value !== rawWord.gender) overrides.gender = gen.value;
-      } else if (type === 'verbs') {
+      } else if (typeClean === 'verbs' || typeClean === 'verb') {
         const pp = form.querySelector('[name="pastParticiple"]');
         const aux = form.querySelector('[name="auxiliary"]');
         const conj = {};
@@ -603,6 +627,11 @@
         });
         if (presChanged) { conj.present = present; conjChanged = true; }
         if (conjChanged) overrides.conjugation = conj;
+      } else if (typeClean === 'adjectives' || typeClean === 'adjective') {
+        const adjTypeSelect = form.querySelector('[name="adjType"]');
+        if (adjTypeSelect && adjTypeSelect.value !== rawWord.type) {
+          overrides.type = adjTypeSelect.value;
+        }
       }
 
       // Preserve existing audio override unless user uploads a new one or resets it
@@ -637,12 +666,12 @@
       }
 
       state.listEditKey = null;
-      renderWordList(type);
+      refreshFn();
     });
 
     bindClick('btn-cancel-edit', () => {
       state.listEditKey = null;
-      renderWordList(type);
+      refreshFn();
     });
 
     // File input listener for audio upload
@@ -681,28 +710,45 @@
 
   /** Render an inline edit row below a word in the table. */
   function renderEditRow(rawWord, displayWord, wordType) {
-    const colSpan = wordType === 'nouns' ? 7 : wordType === 'verbs' ? 6 : 5;
+    const typeClean = (wordType || '').toLowerCase().trim();
+    const isNoun = typeClean === 'nouns' || typeClean === 'noun';
+    const isVerb = typeClean === 'verbs' || typeClean === 'verb';
+    const isAdj = typeClean === 'adjectives' || typeClean === 'adjective';
+
+    const colSpan = isNoun ? 7 : isVerb ? 6 : 5;
     let h = `<tr class="edit-row"><td colspan="${colSpan}"><form id="edit-form" class="edit-panel">`;
 
     h += '<div class="edit-grid">';
+    h += `<label>Wuert<input type="text" name="word" value="${esc(displayWord.word)}" /></label>`;
     h += `<label>Definitioun<input type="text" name="definition" value="${esc(displayWord.definition)}" /></label>`;
 
-    if (wordType === 'nouns') {
-      h += `<label>Artikel<input type="text" name="article" value="${esc(displayWord.article)}" /></label>`;
-      h += `<label>Plural<input type="text" name="plural" value="${esc(displayWord.plural)}" /></label>`;
+    if (isNoun) {
+      h += `<label>Artikel<input type="text" name="article" value="${esc(displayWord.article || '')}" /></label>`;
+      h += `<label>Plural<input type="text" name="plural" value="${esc(displayWord.plural || '')}" /></label>`;
       h += `<label>Geschlecht<select name="gender">
         <option value="m" ${displayWord.gender==='m'?'selected':''}>Maskulin</option>
         <option value="f" ${displayWord.gender==='f'?'selected':''}>Feminin</option>
         <option value="n" ${displayWord.gender==='n'?'selected':''}>Neutrum</option>
       </select></label>`;
-    } else if (wordType === 'verbs') {
+    } else if (isVerb) {
       const conj = displayWord.conjugation || {};
       h += `<label>Partizip Perfekt<input type="text" name="pastParticiple" value="${esc(conj.pastParticiple || '')}" /></label>`;
       h += `<label>Hëllefsverb<select name="auxiliary">
         <option value="hunn" ${conj.auxiliary==='hunn'?'selected':''}>hunn</option>
         <option value="sinn" ${conj.auxiliary==='sinn'?'selected':''}>sinn</option>
       </select></label>`;
+    } else if (isAdj) {
+      h += `<label>Typ<select name="adjType">
+        <option value="adjective" ${displayWord.type==='adjective'?'selected':''}>Adjektiv</option>
+        <option value="adjective/adverb" ${displayWord.type==='adjective/adverb'?'selected':''}>Adjektiv/Adverb</option>
+      </select></label>`;
     }
+
+    const example = SRS.getExample(rawWord);
+    h += `<label>Beispill-Saz<input type="text" name="example" value="${esc(example)}" /></label>`;
+
+    const mnemonic = SRS.getMnemonic(rawWord);
+    h += `<label>Mnemonic<input type="text" name="mnemonic" value="${esc(mnemonic)}" /></label>`;
 
     // Add SRS Box dropdown and Audio upload inputs (all word types)
     const rec = SRS.getRecord(rawWord);
@@ -725,7 +771,7 @@
 
     h += '</div>'; // close main edit-grid
 
-    if (wordType === 'verbs') {
+    if (isVerb) {
       const conj = displayWord.conjugation || {};
       const pres = conj.present || {};
       h += '<div class="edit-grid edit-grid-conj"><span class="edit-section-title">Konjugatioun (Präsens)</span>';
@@ -956,12 +1002,17 @@
 
     h += '<div class="table-container"><table class="word-table">';
     h += '<thead><tr>';
-    h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th>';
+    h += '  <th>Wuert</th><th>Artikel</th><th>Plural</th><th>Geschlecht</th><th>Definitioun</th><th>SRS</th><th></th>';
     h += '</tr></thead><tbody>';
 
     topic.words.forEach(w => {
-      const dw = applyOverrides({ ...w, type: w.type || 'noun' });
+      const raw = w;
+      const dw = applyOverrides({ ...raw, type: raw.type || 'noun' });
       const g = GENDER[dw.gender];
+      const rec = SRS.getRecord(raw);
+      const wk = SRS.wordKey(raw);
+      const isEditing = state.listEditKey === wk;
+
       h += `<tr>
         <td class="word-cell">
           <div class="word-cell-content">
@@ -971,14 +1022,31 @@
         </td>
         <td>${esc(dw.article)}</td>
         <td>${esc(dw.plural)}</td>
-        <td><span class="gender-badge ${g.cssClass}">${g.label}</span></td>
+        <td><span class="gender-badge ${g ? g.cssClass : ''}">${g ? g.label : '?'}</span></td>
         <td>${esc(dw.definition)}</td>
+        <td><span class="srs-badge ${SRS.boxClass(rec.box)}">${SRS.boxLabel(rec.box)}</span></td>
+        <td><button class="edit-row-btn" data-wk="${esc(wk)}" title="Änneren">✏️</button></td>
       </tr>`;
+
+      if (isEditing) {
+        h += renderEditRow(raw, dw, 'noun');
+      }
     });
 
     h += '</tbody></table></div></div>';
     app.innerHTML = h;
     bindAudioButtons();
+
+    // --- Edit events ---
+    document.querySelectorAll('.edit-row-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wk = btn.dataset.wk;
+        state.listEditKey = state.listEditKey === wk ? null : wk;
+        renderTopic(topicId);
+      });
+    });
+
+    bindEditRowEvents(topic.words, 'nouns', () => renderTopic(topicId));
   }
 
   /* ====================================================================
