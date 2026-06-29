@@ -803,9 +803,18 @@
     });
   }
 
+  function cleanText(str) {
+    if (!str) return '';
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+  }
+
   function performSearch(query, resultsElement) {
-    const q = query.toLowerCase().trim();
-    if (!q) {
+    const cleanQ = cleanText(query);
+    if (!cleanQ) {
       resultsElement.innerHTML = '';
       resultsElement.style.display = 'none';
       return;
@@ -823,17 +832,17 @@
     allWords.forEach(w => {
       const dw = applyOverrides(w); // Apply overrides so search matches custom edits
       
-      const wordVal = (dw.word || '').toLowerCase();
-      const defVal = (dw.definition || '').toLowerCase();
-      const pluralVal = (dw.plural || '').toLowerCase();
-      const articleVal = (dw.article || '').toLowerCase();
+      const wordVal = cleanText(dw.word);
+      const defVal = cleanText(dw.definition);
+      const pluralVal = cleanText(dw.plural);
+      const articleVal = cleanText(dw.article);
       
       let isMatch = false;
-      if (wordVal.includes(q)) isMatch = true;
-      else if (defVal.includes(q)) isMatch = true;
-      else if (pluralVal.includes(q)) isMatch = true;
-      else if (articleVal && `${articleVal} ${wordVal}`.includes(q)) isMatch = true;
-      else if (articleVal && `${articleVal}${wordVal}`.includes(q)) isMatch = true;
+      if (wordVal.includes(cleanQ)) isMatch = true;
+      else if (defVal.includes(cleanQ)) isMatch = true;
+      else if (pluralVal.includes(cleanQ)) isMatch = true;
+      else if (articleVal && `${articleVal} ${wordVal}`.includes(cleanQ)) isMatch = true;
+      else if (articleVal && `${articleVal}${wordVal}`.includes(cleanQ)) isMatch = true;
       
       if (isMatch) {
         matches.push({ raw: w, display: dw });
