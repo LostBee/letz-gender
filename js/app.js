@@ -113,6 +113,7 @@
     ttRevealed:    false,
     ttHide:        'none',
     ttType:        '',
+    searchQuery:   '',
   };
 
   /* ====================================================================
@@ -723,6 +724,16 @@
     h += '    <p class="subtitle">Léier Lëtzebuergesch Vokabelen mat Wiederholung</p>';
     h += '  </div>';
 
+    // Search bar container
+    h += '  <div class="search-container">';
+    h += '    <div class="search-input-wrapper">';
+    h += '      <span class="search-icon">🔍</span>';
+    h += '      <input type="text" id="search-input" placeholder="Sich no engem Wuert (z.B. Aarm, al, akafen)..." value="" autocomplete="off" />';
+    h += '      <button id="search-clear-btn" class="search-clear-btn" style="display: none;" title="Läschen">×</button>';
+    h += '    </div>';
+    h += '    <div id="search-results" class="search-results"></div>';
+    h += '  </div>';
+
     h += '  <h2 class="section-title">Wuerttypen</h2>';
     h += '  <div class="wordtype-grid">';
 
@@ -749,6 +760,150 @@
     h += '  </div>';
     h += '</div>';
     app.innerHTML = h;
+
+    // Attach search event listeners
+    setupSearch();
+  }
+
+  function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchClearBtn = document.getElementById('search-clear-btn');
+    const searchResults = document.getElementById('search-results');
+
+    if (!searchInput || !searchResults) return;
+
+    // Re-apply stored search query if any
+    if (state.searchQuery) {
+      searchInput.value = state.searchQuery;
+      searchClearBtn.style.display = 'block';
+      performSearch(state.searchQuery, searchResults);
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value;
+      state.searchQuery = query;
+
+      if (query.trim()) {
+        searchClearBtn.style.display = 'block';
+        performSearch(query, searchResults);
+      } else {
+        searchClearBtn.style.display = 'none';
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+      }
+    });
+
+    searchClearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      state.searchQuery = '';
+      searchClearBtn.style.display = 'none';
+      searchResults.innerHTML = '';
+      searchResults.style.display = 'none';
+      searchInput.focus();
+    });
+  }
+
+  function performSearch(query, resultsElement) {
+    const q = query.toLowerCase().trim();
+    if (!q) {
+      resultsElement.innerHTML = '';
+      resultsElement.style.display = 'none';
+      return;
+    }
+
+    // Get all words
+    const allNouns = getAllNouns().map(w => ({ ...w, type: 'noun' }));
+    const allVerbs = verbs.map(w => ({ ...w, type: 'verb' }));
+    const allAdjectives = adjectives.map(w => ({ ...w, type: 'adjective' }));
+
+    const allWords = [...allNouns, ...allVerbs, ...allAdjectives];
+    
+    // Filter matches
+    const matches = [];
+    allWords.forEach(w => {
+      const dw = applyOverrides(w); // Apply overrides so search matches custom edits
+      
+      const wordVal = (dw.word || '').toLowerCase();
+      const defVal = (dw.definition || '').toLowerCase();
+      const pluralVal = (dw.plural || '').toLowerCase();
+      const articleVal = (dw.article || '').toLowerCase();
+      
+      let isMatch = false;
+      if (wordVal.includes(q)) isMatch = true;
+      else if (defVal.includes(q)) isMatch = true;
+      else if (pluralVal.includes(q)) isMatch = true;
+      else if (articleVal && `${articleVal} ${wordVal}`.includes(q)) isMatch = true;
+      else if (articleVal && `${articleVal}${wordVal}`.includes(q)) isMatch = true;
+      
+      if (isMatch) {
+        matches.push({ raw: w, display: dw });
+      }
+    });
+
+    if (matches.length === 0) {
+      resultsElement.innerHTML = '<div class="no-results">Keng Resultater fonnt.</div>';
+      resultsElement.style.display = 'block';
+      return;
+    }
+
+    // Render matches
+    let h = '';
+    h += `<div class="search-results-header">`;
+    h += `  <span>Resultater (${matches.length})</span>`;
+    h += `</div>`;
+
+    matches.forEach(m => {
+      const w = m.display;
+      const raw = m.raw;
+      const rec = SRS.getRecord(raw);
+
+      h += `<div class="search-result-item">`;
+      h += `  <div class="search-result-left">`;
+      h += `    <div class="search-result-word-row">`;
+      
+      // Render based on word type
+      if (w.type === 'noun') {
+        const gClass = w.gender ? `gender-${w.gender}` : '';
+        if (w.article) {
+          h += `      <span class="search-result-article">${esc(w.article)}</span>`;
+        }
+        h += `      <span class="search-result-word ${gClass}">${esc(w.word)}</span>`;
+        if (w.plural && w.plural !== '-') {
+          h += `      <span class="search-result-plural">(${esc(w.plural)})</span>`;
+        }
+      } else {
+        h += `      <span class="search-result-word">${esc(w.word)}</span>`;
+      }
+      
+      h += `      <span class="srs-badge ${SRS.boxClass(rec.box)}" style="font-size: 0.7rem; padding: 2px 6px;">${SRS.boxLabel(rec.box)}</span>`;
+      h += `    </div>`;
+      h += `    <div class="search-result-definition">${esc(w.definition)}</div>`;
+      h += `  </div>`;
+
+      // Category badge / Link
+      h += `  <div class="search-result-right">`;
+      h += `    ${audioBtn(w)}`;
+      
+      if (w.type === 'noun') {
+        const topic = getTopic(w._topic);
+        const topicName = topic ? topic.name : 'Substantiv';
+        const topicIcon = topic ? topic.icon : '📦';
+        h += `    <a href="#/topic/${w._topic}" class="search-result-category cat-noun">${topicIcon} ${esc(topicName)}</a>`;
+      } else if (w.type === 'verb') {
+        h += `    <a href="#/words/verbs" class="search-result-category cat-verb">⚡ Verben</a>`;
+      } else if (w.type === 'adjective') {
+        h += `    <a href="#/words/adjectives" class="search-result-category cat-adj">🎨 Adjektiven</a>`;
+      }
+      
+      h += `  </div>`;
+      h += `</div>`;
+    });
+
+    resultsElement.innerHTML = h;
+    resultsElement.style.display = 'block';
+
+    // Bind audio button clicks for the new buttons
+    bindAudioButtons();
   }
 
   function renderWordTypeCard(type, icon, nameLb, nameEn, count, stats, desc) {
