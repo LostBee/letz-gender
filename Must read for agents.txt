@@ -1,1 +1,4 @@
-Apply Pareto principle for complicated tasks to save resources. Complete what's easily possible and then ask user if they want to proceed with the rest.
+1. Apply Pareto principle for complicated tasks to save resources. Complete what's easily possible and then ask user if they want to proceed with the rest.
+
+2. Don't  attempt to open the application at http://localhost:3000 for testing.
+Local chrome mode is only supported on Linux.

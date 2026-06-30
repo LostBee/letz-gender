@@ -139,7 +139,9 @@
   }
 
   function audioBtn(word) {
-    if (!word.audio) return '';
+    if (!word.audio) {
+      return `<span class="no-audio-badge" title="LOD: Keen Audio oder net fonnt">⚠️</span>`;
+    }
     return `<button class="audio-btn" data-audio="${esc(word.audio)}" title="Lauschteren">🔊</button>`;
   }
 
@@ -843,6 +845,10 @@
       else if (pluralVal.includes(cleanQ)) isMatch = true;
       else if (articleVal && `${articleVal} ${wordVal}`.includes(cleanQ)) isMatch = true;
       else if (articleVal && `${articleVal}${wordVal}`.includes(cleanQ)) isMatch = true;
+      
+      // Allow searching for words with missing audio / not found in LOD
+      const isNoAudioSearch = (cleanQ === 'noaudio' || cleanQ === 'nolod' || cleanQ === 'warnung' || cleanQ === 'warning' || query.trim() === '⚠️');
+      if (isNoAudioSearch && !dw.audio) isMatch = true;
       
       if (isMatch) {
         matches.push({ raw: w, display: dw });

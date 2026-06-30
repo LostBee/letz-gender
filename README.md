@@ -79,3 +79,16 @@ python tools/fetch-audio.py <topic_id> <word1> [word2] [word3] ...
 python tools/fetch-audio.py adjectives al béis bëlleg deier
 ```
 This downloads the audio files to `audio/adjectives/` and outputs the JavaScript mapping code.
+
+### ⚡ Optimized Fetch Strategy
+To optimize network fetching times, the audio lookup strategy is simplified:
+1. Query only `WORD1` (e.g. `APP1`) on the LOD API.
+2. If `WORD1` is not found, skip the audio mapping for that word. Do not query multiple suffixes (like `WORD2`, `WORD3`) or perform deep base-word queries.
+3. Manually fill in the grammatical details (gender, plural, article) from your own knowledge.
+
+---
+
+## ⚠️ Verifying Missing LOD Audio
+Words that were not found on LOD or are missing pronunciation audio are marked throughout the app:
+* **Visual Indicator**: A warning badge (`⚠️`) is displayed in all tables, lists, and flashcard/study views.
+* **Quick Search**: You can quickly find all words missing audio by typing `nolod`, `noaudio`, `warning`, `warnung`, or `⚠️` into the global search bar. This allows you to verify and manually review these entries as you practice.
