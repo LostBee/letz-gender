@@ -1,0 +1,68 @@
+/**
+ * Topic: Liesen (Reading)
+ * 53 nouns related to reading, books, genres, and media.
+ * Audio files are in audio/reading/.
+ */
+window.LetzGender = window.LetzGender || { topics: [] };
+
+window.LetzGender.topics.push({
+  id: "reading",
+  name: "Liesen",
+  nameEn: "Reading",
+  icon: "📖",
+  words: [
+    { word: "Aarbecht",               article: "d'",  plural: "d'Aarbechten",             gender: "f", definition: "work / job",                          audio: "audio/reading/aarbecht1.m4a" },
+    { word: "Aktivitéit",             article: "d'",  plural: "d'Aktivitéiten",           gender: "f", definition: "activity",                            audio: "audio/reading/aktiviteit1.m4a" },
+    { word: "Audiobuch",              article: "d'",  plural: "d'Audiobicher",            gender: "n", definition: "audiobook",                           audio: "" },
+    { word: "Auto",                   article: "den", plural: "d'Autoen",                 gender: "m", definition: "car",                                 audio: "audio/reading/auto1.m4a" },
+    { word: "Bei",                    article: "d'",  plural: "d'Beien",                  gender: "f", definition: "bee",                                 audio: "audio/reading/bei1.m4a" },
+    { word: "Bibliothéik",            article: "d'",  plural: "d'Bibliothéiken",          gender: "f", definition: "library",                             audio: "audio/reading/bibliotheik1.m4a" },
+    { word: "Biografie",              article: "d'",  plural: "d'Biografien",             gender: "f", definition: "biography",                           audio: "audio/reading/biografie1.m4a" },
+    { word: "Buch",                   article: "d'",  plural: "d'Bicher",                 gender: "n", definition: "book",                                audio: "audio/reading/buch1.m4a" },
+    { word: "Comic",                  article: "de",  plural: "d'Comicken / d'Comics",    gender: "m", definition: "comic",                               audio: "audio/reading/comic1.m4a" },
+    { word: "Deel",                   article: "den", plural: "d'Deeler",                 gender: "m", definition: "part / component",                    audio: "audio/reading/deel1.m4a" },
+    { word: "Duerf",                  article: "d'",  plural: "d'Dierfer",                gender: "n", definition: "village",                             audio: "audio/reading/duerf1.m4a" },
+    { word: "Entwécklung",            article: "d'",  plural: "d'Entwécklungen",          gender: "f", definition: "development",                         audio: "audio/reading/entwecklung1.m4a" },
+    { word: "Examen",                 article: "den", plural: "d'Examen",                 gender: "m", definition: "exam / examination",                  audio: "audio/reading/examen1.m4a" },
+    { word: "Fantasy",                article: "d'",  plural: "-",                        gender: "f", definition: "fantasy (genre)",                     audio: "" },
+    { word: "Fitnessstudio",          article: "de",  plural: "d'Fitnessstudioen",        gender: "m", definition: "gym / fitness center",                audio: "audio/reading/fitnessstudio1.m4a" },
+    { word: "Genre",                  article: "de",  plural: "d'Genren",                 gender: "m", definition: "genre / kind",                        audio: "audio/reading/genre1.m4a" },
+    { word: "Hörbuch",                article: "d'",  plural: "d'Hörbicher",              gender: "n", definition: "audiobook",                           audio: "audio/reading/horbuch1.m4a" },
+    { word: "Informatioun",           article: "d'",  plural: "d'Informatiounen",         gender: "f", definition: "information",                         audio: "audio/reading/informatioun1.m4a" },
+    { word: "Inspiratioun",           article: "d'",  plural: "d'Inspiratiounen",         gender: "f", definition: "inspiration",                         audio: "audio/reading/inspiratioun1.m4a" },
+    { word: "Internet",               article: "den", plural: "-",                        gender: "m", definition: "internet",                            audio: "audio/reading/internet1.m4a" },
+    { word: "Joer",                   article: "d'",  plural: "d'Joren",                  gender: "n", definition: "year",                                audio: "audio/reading/joer1.m4a" },
+    { word: "Kand",                   article: "d'",  plural: "d'Kanner",                 gender: "n", definition: "child",                               audio: "audio/reading/kand1.m4a" },
+    { word: "Kandheet",               article: "d'",  plural: "-",                        gender: "f", definition: "childhood",                           audio: "audio/reading/kandheet1.m4a" },
+    { word: "Klassiker",              article: "de",  plural: "d'Klassiker",              gender: "m", definition: "classic",                             audio: "audio/reading/klassiker1.m4a" },
+    { word: "Krimi",                  article: "de",  plural: "d'Krimien",                gender: "m", definition: "detective story / thriller",          audio: "audio/reading/krimi1.m4a" },
+    { word: "Libesroman",             article: "de",  plural: "d'Libesromaner",           gender: "m", definition: "romance novel",                       audio: "" },
+    { word: "Liblingsauteur",         article: "de",  plural: "d'Liblingsauteuren",       gender: "m", definition: "favorite author",                     audio: "audio/reading/liblingsauteur1.m4a" },
+    { word: "Liblingsbuch",           article: "d'",  plural: "d'Liblingsbicher",         gender: "n", definition: "favorite book",                       audio: "" },
+    { word: "Liblingsklassiker",      article: "de",  plural: "d'Liblingsklassiker",      gender: "m", definition: "favorite classic",                    audio: "" },
+    { word: "Liblingsschrëftsteller", article: "de",  plural: "d'Liblingsschrëftsteller", gender: "m", definition: "favorite writer",                     audio: "audio/reading/liblingsschreftsteller1.m4a" },
+    { word: "Mënsch",                 article: "de",  plural: "d'Mënschen",               gender: "m", definition: "person / human being",                audio: "audio/reading/mensch1.m4a" },
+    { word: "Moment",                 article: "de",  plural: "d'Momenter",               gender: "m", definition: "moment",                              audio: "audio/reading/moment1.m4a" },
+    { word: "Nodeel",                 article: "den", plural: "d'Nodeeler",               gender: "m", definition: "disadvantage",                        audio: "audio/reading/nodeel1.m4a" },
+    { word: "Pabeierbuch",            article: "d'",  plural: "d'Pabeierbicher",          gender: "n", definition: "paper book",                          audio: "" },
+    { word: "Pabeierversioun",        article: "d'",  plural: "d'Pabeierversiounen",      gender: "f", definition: "paper version",                       audio: "" },
+    { word: "Pabeierzeitung",         article: "d'",  plural: "d'Pabeierzeitungen",       gender: "f", definition: "paper newspaper",                     audio: "" },
+    { word: "Podcast",                article: "de",  plural: "d'Podcasten / d'Podcasts", gender: "m", definition: "podcast",                             audio: "audio/reading/podcast1.m4a" },
+    { word: "Roman",                  article: "de",  plural: "d'Romanen / d'Romaner",    gender: "m", definition: "novel",                               audio: "audio/reading/roman1.m4a" },
+    { word: "Saach",                  article: "d'",  plural: "d'Saachen",                gender: "f", definition: "thing / item",                        audio: "audio/reading/saach1.m4a" },
+    { word: "Schaffen",               article: "d'",  plural: "-",                        gender: "n", definition: "working / work",                      audio: "audio/reading/schaffen1.m4a" },
+    { word: "Schlofen",               article: "d'",  plural: "-",                        gender: "n", definition: "sleeping",                            audio: "audio/reading/schlofen1.m4a" },
+    { word: "Schlof",                 article: "de",  plural: "-",                        gender: "m", definition: "sleep",                               audio: "audio/reading/schlof1.m4a" },
+    { word: "Science-Fiction",        article: "d'",  plural: "-",                        gender: "f", definition: "science fiction",                     audio: "" },
+    { word: "Serie",                  article: "d'",  plural: "d'Serien",                 gender: "f", definition: "series",                              audio: "audio/reading/serie1.m4a" },
+    { word: "Sprooch",                article: "d'",  plural: "d'Sproochen",              gender: "f", definition: "language",                            audio: "audio/reading/sprooch1.m4a" },
+    { word: "Stot",                   article: "de",  plural: "d'Stëit",                  gender: "m", definition: "household",                           audio: "audio/reading/stot1.m4a" },
+    { word: "Teenager",               article: "den", plural: "d'Teenageren",             gender: "m", definition: "teenager",                            audio: "audio/reading/teenager1.m4a" },
+    { word: "Vergaangenheet",         article: "d'",  plural: "-",                        gender: "f", definition: "past",                                audio: "audio/reading/vergaangenheet1.m4a" },
+    { word: "Virdeel",                article: "de",  plural: "d'Virdeeler",              gender: "m", definition: "advantage",                           audio: "audio/reading/virdeel1.m4a" },
+    { word: "Woch",                   article: "d'",  plural: "d'Wochen",                 gender: "f", definition: "week",                                audio: "audio/reading/woch1.m4a" },
+    { word: "Zäit",                   article: "d'",  plural: "d'Zäiten",                 gender: "f", definition: "time",                                audio: "audio/reading/zait1.m4a" },
+    { word: "Zeil",                   article: "d'",  plural: "d'Zeilen",                 gender: "f", definition: "line",                                audio: "audio/reading/zeil1.m4a" },
+    { word: "Zeitung",                article: "d'",  plural: "d'Zeitungen",              gender: "f", definition: "newspaper",                           audio: "audio/reading/zeitung2.m4a" }
+  ]
+});

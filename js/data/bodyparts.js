@@ -23,7 +23,7 @@ window.LetzGender.topics.push({
     { word: "Kënn", article: "de", plural: "d'Kënner", gender: "m", definition: "chin", audio: "audio/bodyparts/kenn1.mp3" },
     { word: "Ouerläppchen", article: "dat", plural: "d'Ouerläppcher", gender: "n", definition: "earlobe", audio: "audio/bodyparts/ouerlappchen1.mp3" },
     { word: "Ielebou", article: "den", plural: "d'Ielebouen", gender: "m", definition: "elbow", audio: "audio/bodyparts/ielebou1.mp3" },
-    { word: "Abra", article: "d'", plural: "d'Abraen", gender: "f", definition: "eyebrow" },
+    { word: "Aperhoer", article: "d'", plural: "d'Aperhoer", gender: "n", definition: "eyebrow", audio: "audio/bodyparts/aperhoer1.m4a" },
     { word: "Wimper", article: "d'", plural: "d'Wimperen", gender: "f", definition: "eyelash", audio: "audio/bodyparts/wimper1.mp3" },
     { word: "Gesiicht", article: "dat", plural: "d'Gesiichter", gender: "n", definition: "face", audio: "audio/bodyparts/gesiicht1 (2).mp3" },
     { word: "Fanger", article: "de", plural: "d'Fangeren", gender: "m", definition: "finger", audio: "audio/bodyparts/fanger1.mp3" },
