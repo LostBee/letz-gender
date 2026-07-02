@@ -1329,5 +1329,905 @@ window.LetzGender.verbs.push(
       pastParticiple: "zeréckgeruff", auxiliary: "hunn"
     },
     mnemonic: "", example: "wéinst dem Attentat huet de Premier d'Ministeren aus der Vakanz zeréckgeruff", audio: "audio/verbs/zereckruffen1.m4a"
+  },
+  {
+    word: "mouen", definition: "to rent / lease",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'mouen', du: 'mous', "hien/hatt/et": 'mout', mir: 'mouen', dir: 'mout', si: 'mouen' },
+      pastParticiple: "gemount", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Ech hunn d'Appartement gemount." 
+  },
+  {
+    word: "wanderen", definition: "to hike / wander",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'wanderen', du: 'wanders', "hien/hatt/et": 'wandert', mir: 'wanderen', dir: 'wandert', si: 'wanderen' },
+      pastParticiple: "gewandert", auxiliary: "sinn"
+    },
+    mnemonic: "", example: "Ech gi gär am Bësch wanderen." , audio: "audio/verbs/wanderen_wanderen1.m4a"
+  },
+  {
+    word: "feieren", definition: "to celebrate",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'feieren', du: 'feiers', "hien/hatt/et": 'feiert', mir: 'feieren', dir: 'feiert', si: 'feieren' },
+      pastParticiple: "gefeiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Mir feieren d'Nopeschfest." , audio: "audio/verbs/feieren_feieren1.m4a"
+  },
+  {
+    word: "nätzen", definition: "to water / wet",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'nätzen', du: 'nätzt', "hien/hatt/et": 'nätzt', mir: 'nätzen', dir: 'nätzt', si: 'nätzen' },
+      pastParticiple: "genëtzt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Ech nätzen d'Blummen." , audio: "audio/verbs/ntzen_ntzen1.m4a"
+  },
+  {
+    word: "plangen", definition: "to plan",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'plangen', du: 'plangs', "hien/hatt/et": 'plangt', mir: 'plangen', dir: 'plangt', si: 'plangen' },
+      pastParticiple: "geplangt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Ech plangen e Bauerenhaff ze kafen." , audio: "audio/verbs/plangen_plangen1.m4a"
+  },
+  {
+    word: "ziichten", definition: "to grow / breed / cultivate",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'ziichten', du: 'ziichts', "hien/hatt/et": 'ziicht', mir: 'ziichten', dir: 'ziicht', si: 'ziichten' },
+      pastParticiple: "geziicht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Hien ziicht Hunnegbeien." , audio: "audio/verbs/ziichten_ziichten1.m4a"
+  },
+  {
+    word: "joggen", definition: "to jog",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'joggen', du: 'joggs', "hien/hatt/et": 'joggt', mir: 'joggen', dir: 'joggt', si: 'joggen' },
+      pastParticiple: "gejoggt", auxiliary: "sinn"
+    },
+    mnemonic: "", example: "Ech gi moies am Bësch joggen." , audio: "audio/verbs/joggen_joggen1.m4a"
+  },
+  {
+    word: "afferen", definition: "to sacrifice",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "afferen", du: "affers", "hien/hatt/et": "affert", mir: "afferen", dir: "affert", si: "afferen" },
+      pastParticiple: "geaffert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/afferen_afferen1.m4a"
+  },
+  {
+    word: "araumen", definition: "to put away",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "raumen an", du: "raums an", "hien/hatt/et": "raumt an", mir: "raumen an", dir: "raumt an", si: "raumen an" },
+      pastParticiple: "ageraumt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/araumen_araumen1.m4a"
+  },
+  {
+    word: "aschlofen", definition: "to fall asleep",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schlofen an", du: "schléifs an", "hien/hatt/et": "schléift an", mir: "schlofen an", dir: "schlooft an", si: "schlofen an" },
+      pastParticiple: "ageschlof", auxiliary: "sinn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/aschlofen_aschlofen1.m4a"
+  },
+  {
+    word: "astellen", definition: "to take on",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "stellen (mech) an", du: "stells (dech) an", "hien/hatt/et": "stellt (sech) an", mir: "stellen (eis) an", dir: "stellt (iech) an", si: "stellen (sech) an" },
+      pastParticiple: "agestallt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/astellen_astellen1.m4a"
+  },
+  {
+    word: "ausgesinn", definition: "to look (like)",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "gesinn aus", du: "gesäis aus", "hien/hatt/et": "gesäit aus", mir: "gesinn aus", dir: "gesitt aus", si: "gesinn aus" },
+      pastParticiple: "ausgesinn", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/ausgesinn_ausgesinn1.m4a"
+  },
+  {
+    word: "austauschen", definition: "to exchange",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "tauschen aus", du: "tauschs aus", "hien/hatt/et": "tauscht aus", mir: "tauschen aus", dir: "tauscht aus", si: "tauschen aus" },
+      pastParticiple: "ausgetosch", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/austauschen_austauschen1.m4a"
+  },
+  {
+    word: "auswielen", definition: "to choose",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wielen aus", du: "wiels aus", "hien/hatt/et": "wielt aus", mir: "wielen aus", dir: "wielt aus", si: "wielen aus" },
+      pastParticiple: "ausgewielt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/auswielen_auswielen1.m4a"
+  },
+  {
+    word: "bauen", definition: "to build",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bauen", du: "baus", "hien/hatt/et": "baut", mir: "bauen", dir: "baut", si: "bauen" },
+      pastParticiple: "gebaut", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/bauen_bauen1.m4a"
+  },
+  {
+    word: "behalen", definition: "to keep",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "behalen", du: "behäls", "hien/hatt/et": "behält", mir: "behalen", dir: "behaalt", si: "behalen" },
+      pastParticiple: "behalen / behal", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/behalen_behalen1.m4a"
+  },
+  {
+    word: "béien", definition: "to bend",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "béien (mech)", du: "béis (dech)", "hien/hatt/et": "béit (sech)", mir: "béien (eis)", dir: "béit (iech) ", si: "béien (sech) " },
+      pastParticiple: "gebéit", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/bien_bien1.m4a"
+  },
+  {
+    word: "bekennen", definition: "to confess",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bekennen (mech)", du: "bekenns (dech)", "hien/hatt/et": "bekennt (sech)", mir: "bekennen (eis)", dir: "bekennt (iech) ", si: "bekennen (sech) " },
+      pastParticiple: "bekannt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/bekennen_bekennen1.m4a"
+  },
+  {
+    word: "benotzen", definition: "to use",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "benotzen", du: "benotz", "hien/hatt/et": "benotzt", mir: "benotzen", dir: "benotzt", si: "benotzen" },
+      pastParticiple: "benotzt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/benotzen_benotzen1.m4a"
+  },
+  {
+    word: "beréieren", definition: "to touch",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "beréieren", du: "beréiers", "hien/hatt/et": "beréiert", mir: "beréieren", dir: "beréiert", si: "beréieren" },
+      pastParticiple: "beréiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/berieren_berieren1.m4a"
+  },
+  {
+    word: "beschreiwen", definition: "to describe",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "beschreiwen", du: "beschreifs", "hien/hatt/et": "beschreift", mir: "beschreiwen", dir: "beschreift", si: "beschreiwen" },
+      pastParticiple: "beschriwwen", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/beschreiwen_beschreiwen1.m4a"
+  },
+  {
+    word: "bléien", definition: "to bloom",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "", du: "", "hien/hatt/et": "bléit / blitt", mir: "", dir: "", si: "bléien" },
+      pastParticiple: "gebléit / geblitt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/blien_blien1.m4a"
+  },
+  {
+    word: "broden", definition: "to fry",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "broden", du: "bréits / broots", "hien/hatt/et": "bréit / brot", mir: "broden", dir: "brot", si: "broden" },
+      pastParticiple: "gebroden", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/broden_broden1.m4a"
+  },
+  {
+    word: "buchen", definition: "to book",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "buchen", du: "buchs", "hien/hatt/et": "bucht", mir: "buchen", dir: "bucht", si: "buchen" },
+      pastParticiple: "gebucht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/buchen_buchen1.m4a"
+  },
+  {
+    word: "campéieren", definition: "to camp",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "campéieren", du: "campéiers", "hien/hatt/et": "campéiert", mir: "campéieren", dir: "campéiert", si: "campéieren" },
+      pastParticiple: "campéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/campieren_campieren1.m4a"
+  },
+  {
+    word: "deelen", definition: "to share",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "deelen", du: "deels", "hien/hatt/et": "deelt (sech)", mir: "deelen", dir: "deelt", si: "deelen (sech) " },
+      pastParticiple: "gedeelt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/deelen_deelen1.m4a"
+  },
+  {
+    word: "denken", definition: "to think",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "denken", du: "denks", "hien/hatt/et": "denkt", mir: "denken", dir: "denkt", si: "denken" },
+      pastParticiple: "geduecht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/denken_denken1.m4a"
+  },
+  {
+    word: "desinfizéieren", definition: "to disinfect",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "desinfizéieren", du: "desinfizéiers", "hien/hatt/et": "desinfizéiert", mir: "desinfizéieren", dir: "desinfizéiert", si: "desinfizéieren" },
+      pastParticiple: "desinfizéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/desinfizieren_desinfizieren1.m4a"
+  },
+  {
+    word: "doen", definition: "to do",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "doen / dinn", du: "dees", "hien/hatt/et": "deet (sech)", mir: "doen / dinn", dir: "dot / ditt", si: "doen / dinn (sech)" },
+      pastParticiple: "gedoen", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/doen_doen1.m4a"
+  },
+  {
+    word: "entdecken", definition: "to discover",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "entdecken", du: "entdecks", "hien/hatt/et": "entdeckt", mir: "entdecken", dir: "entdeckt", si: "entdecken" },
+      pastParticiple: "entdeckt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/entdecken_entdecken1.m4a"
+  },
+  {
+    word: "entscheeden", definition: "to decide (on)",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "entscheeden (mech)", du: "entscheets (dech)", "hien/hatt/et": "entscheet (sech)", mir: "entscheeden (eis)", dir: "entscheet (iech)", si: "entscheeden (sech)" },
+      pastParticiple: "entscheet", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/entscheeden_entscheeden1.m4a"
+  },
+  {
+    word: "entspanen", definition: "to defuse",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "entspanen (mech)", du: "entspaans (dech)", "hien/hatt/et": "entspaant (sech)", mir: "entspanen (eis)", dir: "entspaant (iech)", si: "entspanen (sech)" },
+      pastParticiple: "entspaant", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/entspanen_entspanen1.m4a"
+  },
+  {
+    word: "entwéckelen", definition: "to develop",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "entwéckelen (mech)", du: "entwéckels (dech)", "hien/hatt/et": "entwéckelt (sech)", mir: "entwéckelen (eis)", dir: "entwéckelt (iech) ", si: "entwéckelen (sech) " },
+      pastParticiple: "entwéckelt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/entwckelen_entwckelen1.m4a"
+  },
+  {
+    word: "erausginn", definition: "to pass out",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "ginn eraus", du: "gëss eraus", "hien/hatt/et": "gëtt eraus", mir: "ginn eraus", dir: "gitt eraus", si: "ginn eraus" },
+      pastParticiple: "erausginn", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/erausginn_erausginn2.m4a"
+  },
+  {
+    word: "eraussichen", definition: "to pick",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "sichen eraus", du: "sichs eraus", "hien/hatt/et": "sicht eraus", mir: "sichen eraus", dir: "sicht eraus", si: "sichen eraus" },
+      pastParticiple: "erausgesicht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/eraussichen_eraussichen1.m4a"
+  },
+  {
+    word: "erlaben", definition: "to allow",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "erlaben", du: "erlaabs", "hien/hatt/et": "erlaabt", mir: "erlaben", dir: "erlaabt", si: "erlaben" },
+      pastParticiple: "erlaabt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/erlaben_erlaben1.m4a"
+  },
+  {
+    word: "erzielen", definition: "to tell",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "erzielen", du: "erziels", "hien/hatt/et": "erzielt", mir: "erzielen", dir: "erzielt", si: "erzielen" },
+      pastParticiple: "erzielt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/erzielen_erzielen1.m4a"
+  },
+  {
+    word: "feelen", definition: "to be absent",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "feelen", du: "feels", "hien/hatt/et": "feelt", mir: "feelen", dir: "feelt", si: "feelen" },
+      pastParticiple: "gefeelt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/feelen_feelen1.m4a"
+  },
+  {
+    word: "fidderen", definition: "to feed",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "fidderen", du: "fidders", "hien/hatt/et": "fiddert", mir: "fidderen", dir: "fiddert", si: "fidderen" },
+      pastParticiple: "gefiddert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/fidderen_fidderen1.m4a"
+  },
+  {
+    word: "flécken", definition: "to mend",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "flécken", du: "flécks", "hien/hatt/et": "fléckt", mir: "flécken", dir: "fléckt", si: "flécken" },
+      pastParticiple: "gefléckt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/flcken_flcken1.m4a"
+  },
+  {
+    word: "fänken", definition: "to catch",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "fänken", du: "fänks", "hien/hatt/et": "fänkt", mir: "fänken", dir: "fänkt", si: "fänken" },
+      pastParticiple: "gefaangen / gefaang", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/fnken_fnken1.m4a"
+  },
+  {
+    word: "genéissen", definition: "to savour",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "genéissen", du: "genéiss", "hien/hatt/et": "genéisst", mir: "genéissen", dir: "genéisst", si: "genéissen" },
+      pastParticiple: "genoss", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/genissen_genissen1.m4a"
+  },
+  {
+    word: "gewannen", definition: "to win",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "gewannen", du: "gewënns", "hien/hatt/et": "gewënnt", mir: "gewannen", dir: "gewannt", si: "gewannen" },
+      pastParticiple: "gewonnen / gewonn", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/gewannen_gewannen1.m4a"
+  },
+  {
+    word: "hiewen", definition: "to lift",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "hiewen (mech)", du: "hiefs (dech)", "hien/hatt/et": "hieft (sech)", mir: "hiewen (eis)", dir: "hieft (iech)", si: "hiewen (sech)" },
+      pastParticiple: "gehuewen", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/hiewen_hiewen1.m4a"
+  },
+  {
+    word: "investéieren", definition: "to invest",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "investéieren (mech)", du: "investéiers (dech)", "hien/hatt/et": "investéiert (sech)", mir: "investéieren (eis)", dir: "investéiert (iech) ", si: "investéieren (sech) " },
+      pastParticiple: "investéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/investieren_investieren1.m4a"
+  },
+  {
+    word: "iwwerleeën", definition: "to think about something",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "iwwerleeën", du: "iwwerlees", "hien/hatt/et": "iwwerleet", mir: "iwwerleeën", dir: "iwwerleet", si: "iwwerleeën" },
+      pastParticiple: "iwwerluecht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/iwwerleen_iwwerleen1.m4a"
+  },
+  {
+    word: "iwwerweisen", definition: "to transfer",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "iwwerweisen", du: "iwwerweis", "hien/hatt/et": "iwwerweist", mir: "iwwerweisen", dir: "iwwerweist", si: "iwwerweisen" },
+      pastParticiple: "iwwerwisen", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/iwwerweisen_iwwerweisen1.m4a"
+  },
+  {
+    word: "kléngen", definition: "to sound",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "kléngen", du: "kléngs", "hien/hatt/et": "kléngt", mir: "kléngen", dir: "kléngt", si: "kléngen" },
+      pastParticiple: "geklongen / geklong", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/klngen_klngen1.m4a"
+  },
+  {
+    word: "kontrolléieren", definition: "to keep a watch on",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "kontrolléieren", du: "kontrolléiers", "hien/hatt/et": "kontrolléiert", mir: "kontrolléieren", dir: "kontrolléiert", si: "kontrolléieren" },
+      pastParticiple: "kontrolléiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/kontrollieren_kontrollieren1.m4a"
+  },
+  {
+    word: "kéieren", definition: "to turn",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "kéieren", du: "kéiers", "hien/hatt/et": "kéiert", mir: "kéieren", dir: "kéiert", si: "kéieren" },
+      pastParticiple: "gekéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/kieren_kieren1.m4a"
+  },
+  {
+    word: "këmmeren", definition: "to look after",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "këmmere mech", du: "këmmers dech", "hien/hatt/et": "këmmert sech", mir: "këmmeren eis", dir: "këmmert iech", si: "këmmeren sech" },
+      pastParticiple: "gekëmmert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/kmmeren_kmmeren1.m4a"
+  },
+  {
+    word: "langweilen", definition: "to bore",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "langweilen (mech)", du: "langweils (dech)", "hien/hatt/et": "langweilt (sech)", mir: "langweilen (eis)", dir: "langweilt (iech) ", si: "langweilen (sech) " },
+      pastParticiple: "gelangweilt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/langweilen_langweilen1.m4a"
+  },
+  {
+    word: "loossen", definition: "to leave",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "loossen", du: "léiss", "hien/hatt/et": "léisst (sech)", mir: "loossen", dir: "loosst", si: "loossen (sech)" },
+      pastParticiple: "gelooss", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/loossen_loossen1.m4a"
+  },
+  {
+    word: "mierken", definition: "to notice",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "mierken", du: "mierks", "hien/hatt/et": "mierkt", mir: "mierken", dir: "mierkt", si: "mierken" },
+      pastParticiple: "gemierkt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/mierken_mierken1.m4a"
+  },
+  {
+    word: "motivéieren", definition: "to motivate",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "motivéieren", du: "motivéiers", "hien/hatt/et": "motivéiert", mir: "motivéieren", dir: "motivéiert", si: "motivéieren" },
+      pastParticiple: "motivéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/motivieren_motivieren1.m4a"
+  },
+  {
+    word: "méien", definition: "to mow",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "méien", du: "méis", "hien/hatt/et": "méit", mir: "méien", dir: "méit", si: "méien" },
+      pastParticiple: "geméit", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/mien_mien1.m4a"
+  },
+  {
+    word: "nodenken", definition: "to think (about)",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "denken no", du: "denks no", "hien/hatt/et": "denkt no", mir: "denken no", dir: "denkt no", si: "denken no" },
+      pastParticiple: "nogeduecht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/nodenken_nodenken1.m4a"
+  },
+  {
+    word: "notéieren", definition: "to note",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "notéieren", du: "notéiers", "hien/hatt/et": "notéiert", mir: "notéieren", dir: "notéiert", si: "notéieren" },
+      pastParticiple: "notéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/notieren_notieren1.m4a"
+  },
+  {
+    word: "ofbauen", definition: "to extract",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bauen of", du: "baus of", "hien/hatt/et": "baut of", mir: "bauen of", dir: "baut of", si: "bauen of" },
+      pastParticiple: "ofgebaut", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/ofbauen_ofbauen1.m4a"
+  },
+  {
+    word: "opbauen", definition: "to set up",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bauen op", du: "baus op", "hien/hatt/et": "baut op", mir: "bauen op", dir: "baut op", si: "bauen op" },
+      pastParticiple: "opgebaut", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/opbauen_opbauen1.m4a"
+  },
+  {
+    word: "opbotzen", definition: "to mop up",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "botzen op", du: "botz op", "hien/hatt/et": "botzt op", mir: "botzen op", dir: "botzt op", si: "botzen op" },
+      pastParticiple: "opgebotzt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/opbotzen_opbotzen1.m4a"
+  },
+  {
+    word: "opferen", definition: "to sacrifice",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "opferen", du: "opfers", "hien/hatt/et": "opfert", mir: "opferen", dir: "opfert", si: "opferen" },
+      pastParticiple: "geopfert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/opferen_opferen1.m4a"
+  },
+  {
+    word: "opginn", definition: "to give up",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "ginn op", du: "gëss op", "hien/hatt/et": "gëtt op", mir: "ginn op", dir: "gitt op", si: "ginn op" },
+      pastParticiple: "opginn", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/opginn_opginn1.m4a"
+  },
+  {
+    word: "ophalen", definition: "to hold open",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "halen (mech) op", du: "häls (dech) op", "hien/hatt/et": "hält (sech) op", mir: "halen (eis) op", dir: "haalt (iech) op", si: "halen (sech) op" },
+      pastParticiple: "opgehalen / opgehal", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/ophalen_ophalen1.m4a"
+  },
+  {
+    word: "oplueden", definition: "to load",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "lueden (mech) op", du: "luets (dech) op", "hien/hatt/et": "luet (sech) op", mir: "lueden (eis) op", dir: "luet (iech) op", si: "lueden (sech) op" },
+      pastParticiple: "opgelueden", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/oplueden_oplueden1.m4a"
+  },
+  {
+    word: "opwuessen", definition: "to grow up",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wuessen op", du: "wiiss op", "hien/hatt/et": "wiisst op", mir: "wuessen op", dir: "wuesst op", si: "wuessen op" },
+      pastParticiple: "opgewuess", auxiliary: "sinn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/opwuessen_opwuessen1.m4a"
+  },
+  {
+    word: "parken", definition: "to park",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "parken", du: "parks", "hien/hatt/et": "parkt", mir: "parken", dir: "parkt", si: "parken" },
+      pastParticiple: "geparkt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/parken_parken1.m4a"
+  },
+  {
+    word: "passen", definition: "to fit",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "passen", du: "pass", "hien/hatt/et": "passt (sech)", mir: "passen", dir: "passt", si: "passen (sech)" },
+      pastParticiple: "gepasst", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/passen_passen2.m4a"
+  },
+  {
+    word: "produzéieren", definition: "to produce",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "produzéieren (mech)", du: "produzéiers (dech)", "hien/hatt/et": "produzéiert (sech)", mir: "produzéieren (eis)", dir: "produzéiert (iech) ", si: "produzéieren (sech) " },
+      pastParticiple: "produzéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/produzieren_produzieren1.m4a"
+  },
+  {
+    word: "reagéieren", definition: "to react (to)",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "reagéieren", du: "reagéiers", "hien/hatt/et": "reagéiert", mir: "reagéieren", dir: "reagéiert", si: "reagéieren" },
+      pastParticiple: "reagéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/reagieren_reagieren1.m4a"
+  },
+  {
+    word: "ruffen", definition: "to call",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "ruffen", du: "riffs", "hien/hatt/et": "rifft", mir: "ruffen", dir: "rufft", si: "ruffen" },
+      pastParticiple: "geruff", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/ruffen_ruffen1.m4a"
+  },
+  {
+    word: "salzen", definition: "to salt",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "salzen", du: "salz", "hien/hatt/et": "salzt", mir: "salzen", dir: "salzt", si: "salzen" },
+      pastParticiple: "gesalzt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/salzen_salzen1.m4a"
+  },
+  {
+    word: "schafen", definition: "to create",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schafen", du: "schaafs", "hien/hatt/et": "schaaft", mir: "schafen", dir: "schaaft", si: "schafen" },
+      pastParticiple: "geschafen / geschaf / geschaaft", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schafen_schafen1.m4a"
+  },
+  {
+    word: "scheien", definition: "to shy from",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "scheien (mech)", du: "scheis (dech)", "hien/hatt/et": "scheit (sech)", mir: "scheien (eis)", dir: "scheit (iech) ", si: "scheien (sech) " },
+      pastParticiple: "gescheit", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/scheien_scheien1.m4a"
+  },
+  {
+    word: "schenken", definition: "to give",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schenken", du: "schenks", "hien/hatt/et": "schenkt", mir: "schenken", dir: "schenkt", si: "schenken" },
+      pastParticiple: "geschenkt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schenken_schenken1.m4a"
+  },
+  {
+    word: "schleideren", definition: "to be hurled",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schleideren", du: "schleiders", "hien/hatt/et": "schleidert", mir: "schleideren", dir: "schleidert", si: "schleideren" },
+      pastParticiple: "geschleidert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schleideren_schleideren2.m4a"
+  },
+  {
+    word: "schloen", definition: "to hit",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schloen (mech)", du: "schléis (dech)", "hien/hatt/et": "schléit (sech)", mir: "schloen (eis)", dir: "schlot (iech)", si: "schloen (sech)" },
+      pastParticiple: "geschloen", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schloen_schloen1.m4a"
+  },
+  {
+    word: "schléissen", definition: "to take to one's heart",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schléissen", du: "schléiss", "hien/hatt/et": "schléisst", mir: "schléissen", dir: "schléisst", si: "schléissen" },
+      pastParticiple: "geschloss", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schlissen_schlissen1.m4a"
+  },
+  {
+    word: "schmaachen", definition: "to taste",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schmaachen", du: "schmaachs", "hien/hatt/et": "schmaacht", mir: "schmaachen", dir: "schmaacht", si: "schmaachen" },
+      pastParticiple: "geschmaacht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schmaachen_schmaachen1.m4a"
+  },
+  {
+    word: "schweessen", definition: "to sweat",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schweessen", du: "schweess", "hien/hatt/et": "schweesst", mir: "schweessen", dir: "schweesst", si: "schweessen" },
+      pastParticiple: "geschweesst", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schweessen_schweessen1.m4a"
+  },
+  {
+    word: "schützen", definition: "to protect",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "schützen", du: "schütz", "hien/hatt/et": "schützt", mir: "schützen", dir: "schützt", si: "schützen" },
+      pastParticiple: "geschützt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/schtzen_schtzen1.m4a"
+  },
+  {
+    word: "séien", definition: "to sow",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "séien", du: "séis", "hien/hatt/et": "séit", mir: "séien", dir: "séit", si: "séien" },
+      pastParticiple: "geséit", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/sien_sien1.m4a"
+  },
+  {
+    word: "sëtzen", definition: "to sit",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "sëtzen", du: "sëtz", "hien/hatt/et": "sëtzt", mir: "sëtzen", dir: "sëtzt", si: "sëtzen" },
+      pastParticiple: "gesiess", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/stzen_stzen1.m4a"
+  },
+  {
+    word: "trainéieren", definition: "to train",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "trainéieren", du: "trainéiers", "hien/hatt/et": "trainéiert", mir: "trainéieren", dir: "trainéiert", si: "trainéieren" },
+      pastParticiple: "trainéiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/trainieren_trainieren1.m4a"
+  },
+  {
+    word: "ubidden", definition: "to offer",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bidden (mech) un", du: "bitts (dech) un", "hien/hatt/et": "bitt (sech) un", mir: "bidden (eis) un", dir: "bitt (iech) un", si: "bidden (sech) un" },
+      pastParticiple: "ugebueden", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/ubidden_ubidden1.m4a"
+  },
+  {
+    word: "unhunn", definition: "to wear",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "hunn un", du: "hues un", "hien/hatt/et": "huet un", mir: "hunn un", dir: "hutt un", si: "hunn un" },
+      pastParticiple: "ugehat", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/unhunn_unhunn1.m4a"
+  },
+  {
+    word: "verbesseren", definition: "to improve",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "verbesseren (mech)", du: "verbessers (dech)", "hien/hatt/et": "verbessert (sech)", mir: "verbesseren (eis)", dir: "verbessert (iech) ", si: "verbesseren (sech) " },
+      pastParticiple: "verbessert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/verbesseren_verbesseren1.m4a"
+  },
+  {
+    word: "verbréngen", definition: "to spend",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "verbréngen", du: "verbréngs", "hien/hatt/et": "verbréngt", mir: "verbréngen", dir: "verbréngt", si: "verbréngen" },
+      pastParticiple: "verbruecht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/verbrngen_verbrngen1.m4a"
+  },
+  {
+    word: "verdéngen", definition: "to earn",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "verdéngen", du: "verdéngs", "hien/hatt/et": "verdéngt", mir: "verdéngen", dir: "verdéngt", si: "verdéngen" },
+      pastParticiple: "verdéngt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/verdngen_verdngen1.m4a"
+  },
+  {
+    word: "versichen", definition: "to try to",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "versichen", du: "versichs", "hien/hatt/et": "versicht", mir: "versichen", dir: "versicht", si: "versichen" },
+      pastParticiple: "versicht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/versichen_versichen1.m4a"
+  },
+  {
+    word: "virbereeden", definition: "to prepare for",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "bereede vir", du: "bereets vir", "hien/hatt/et": "bereet vir", mir: "bereede vir", dir: "bereet vir", si: "bereede vir" },
+      pastParticiple: "virbereet", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/virbereeden_virbereeden1.m4a"
+  },
+  {
+    word: "virstellen", definition: "to introduce",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "stellen (mech) vir", du: "stells (dech) vir", "hien/hatt/et": "stellt (sech) vir", mir: "stellen (eis) vir", dir: "stellt (iech) vir", si: "stellen (sech) vir" },
+      pastParticiple: "virgestallt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/virstellen_virstellen1.m4a"
+  },
+  {
+    word: "wielen", definition: "to pick",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wielen", du: "wiels", "hien/hatt/et": "wielt", mir: "wielen", dir: "wielt", si: "wielen" },
+      pastParticiple: "gewielt", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/wielen_wielen1.m4a"
+  },
+  {
+    word: "wieren", definition: "to intervene",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wieren (mech)", du: "wiers (dech)", "hien/hatt/et": "wiert (sech)", mir: "wieren (eis)", dir: "wiert (iech) ", si: "wieren (sech) " },
+      pastParticiple: "gewiert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/wieren_wieren1.m4a"
+  },
+  {
+    word: "wuessen", definition: "to grow",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wuessen", du: "wiiss", "hien/hatt/et": "wiisst", mir: "wuessen", dir: "wuesst", si: "wuessen" },
+      pastParticiple: "gewuess", auxiliary: "sinn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/wuessen_wuessen1.m4a"
+  },
+  {
+    word: "wäissen", definition: "to whitewash",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wäissen", du: "wäiss", "hien/hatt/et": "wäisst", mir: "wäissen", dir: "wäisst", si: "wäissen" },
+      pastParticiple: "gewäisst", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/wissen_wissen1.m4a"
+  },
+  {
+    word: "wëschen", definition: "to wipe (with)",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "wëschen", du: "wëschs", "hien/hatt/et": "wëscht", mir: "wëschen", dir: "wëscht", si: "wëschen" },
+      pastParticiple: "gewëscht", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/wschen_wschen2.m4a"
+  },
+  {
+    word: "änneren", definition: "to change",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "änneren (mech)", du: "änners (dech)", "hien/hatt/et": "ännert (sech)", mir: "änneren (eis)", dir: "ännert (iech) ", si: "änneren (sech) " },
+      pastParticiple: "geännert", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/nneren_nneren1.m4a"
+  },
+  {
+    word: "ëmtauschen", definition: "to exchange",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: "tauschen ëm", du: "tauschs ëm", "hien/hatt/et": "tauscht ëm", mir: "tauschen ëm", dir: "tauscht ëm", si: "tauschen ëm" },
+      pastParticiple: "ëmgetosch", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "" , audio: "audio/verbs/mtauschen_mtauschen1.m4a"
+  },
+  {
+    word: "ausbauen", definition: "to expand / enlarge",
+    type: "verb", themes: [],
+    conjugation: {
+      present: { ech: 'bauen aus', du: 'baus aus', "hien/hatt/et": 'baut aus', mir: 'bauen aus', dir: 'baut aus', si: 'bauen aus' },
+      pastParticiple: "ausgebaut", auxiliary: "hunn"
+    },
+    mnemonic: "", example: "Mir plangen, eisen Imkereibetrib auszebauen." , audio: "audio/verbs/ausbauen_ausbauen1.m4a"
   }
 );
